@@ -1,0 +1,18 @@
+{% extends "base.html "%}
+{% block content%}
+<table>
+    <tr>
+        {% for heading in heading_table_mills%}
+        <th> {{ heading }}</th>
+        {% endfor%}
+    </tr>
+        
+    {% for data_mills in add_to_table_mills%} 
+        <tr>
+            {% for data in data_mills %}
+            <td> {{ data }}</td>
+            {% endfor%}
+        </tr>
+    {% endfor%}
+</table>
+{% endblock%}

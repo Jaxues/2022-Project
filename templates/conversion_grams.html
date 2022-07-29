@@ -1,0 +1,18 @@
+{% extends "base.html "%}
+{% block content%}
+<table>
+    <tr>
+        {% for heading in heading_table_grams%}
+        <th> {{ heading }}</th>
+        {% endfor%}
+    </tr>
+        
+    {% for data_grams in add_to_table_grams%} 
+        <tr>
+            {% for data in data_grams %}
+            <td> {{ data }}</td>
+            {% endfor%}
+        </tr>
+    {% endfor%}
+</table>
+{% endblock%}

@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% block content%}
+{% if add_to_table_grams %}
+<p>The final conversion of {{add_to_table_grams[1]}} {{add_to_table_grams[0]}} to grams is {{add_to_table_grams[2]}}.</p>
+{% elif add_to_mills%}
+<p>The final conversion of {{add_to_table_mills[1]}} {{add_to_table_mills[0]}} to mills is {{add_to_table_mills[2]}}.</p>
+{% else%}
+<p> No units converted yet convert.</p>
+{% endif%}
+<p><a href="{{ url_for('conversion_grams')}}"> Conversions for grams</a> </p>
+<p><a href="{{ url_for('conversion_mills')}}"> Conversion for mills</a></p>
+<p><a href="{{ url_for('converter')}}"> Convert another measurement</a></p>
+{% endblock%}

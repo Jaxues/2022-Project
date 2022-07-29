@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content%}
+<script>
+    function hideform(y) {
+        //Script to hide form based on input from radio button. 
+        if (y=='Militres') {
+            document.getElementById('unitmills').style.display='block';
+            document.getElementById('unitgrams').style.display='none';
+            
+        }
+        
+        else  {
+            document.getElementById('unitgrams').style.display='block';
+            document.getElementById('unitmills').style.display='none';
+        }
+        return;
+    }
+
+    function hideinput(x) {
+        if (x=='mills'){
+            document.getElement.value
+        }
+        else {
+
+        }
+        return
+    }
+    </script>
+
+
+
+<body>
+    <form method="post" action="/conversions">
+        <h2> What would you like to convert measurement to?</h2>
+        <input type="radio"  name="Militres or Grams" id="Militres" value="Militres" onclick="hideform('Militres')"> Militres
+        <input type="radio"  name="Militres or Grams" id="Grams" values="Grams" onclick="hideform('Grams')"> Grams   
+           <label hidden id="unitmills">
+            <label >
+                <h3>Select a unit to convert to militres</h3>
+                <select  name="unitmills"> 
+                    {% for unit in units_mills%}
+                    <option value="{{ unit }}" > {{ unit }} </option>
+                    {% endfor%}
+                </select>
+            </label>
+           </label> 
+        </label>
+    
+       <div >
+        <label hidden id="unitgrams"> 
+            <h3>Select a unit to convert to grams</h3>
+            <label>
+                <select name="unitgrams"> 
+                    {% for unit in units_grams%}
+                    <option value="{{ unit}}" > {{ unit }} </option>
+                    {% endfor%}
+                </select>
+            </label>
+        </label>
+       </div>
+
+
+    
+            <label id="NumberMeasurements">
+                <h2>Please enter the number of units you would like to convert?</h2>
+                <p><input name='numberofunits' type='number' min=0.25 step="0.25">
+                </label>
+
+
+        <p><input type="submit"> </p>
+    </form>
+    
+{%endblock%}

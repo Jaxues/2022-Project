@@ -1,0 +1,42 @@
+<html>
+<script>
+function hideform(y) {
+    //Script to hide form based on input from radio button. 
+    if (y==1) {
+        document.getElementById('testform1').style.display='block';
+        document.getElementById('testform2').style.display='none';
+    }
+    
+    else {
+        document.getElementById('testform2').style.display='block';
+        document.getElementById('testform1').style.display='none';
+    }
+    return;
+}
+</script>
+
+<p><input type="radio" name="test" onclick="hideform(1)">test1</p>
+<p><input type="radio" name="test"onclick="hideform(0)">test2</p>
+
+<form> 
+<label hidden id="testform1"> 
+    <select> 
+        <option onselect="hideinput" name="1">1</option>
+        <option onselect="hideinput">2</option>
+        <option onselect="hideinput">3</option>
+    </select>
+</label>
+<label hidden id="testform2"> 
+    <select> 
+        <option onselect="hideinput">test</option>
+        <option onselect="hideinput">test</option>
+        <option onselect="hideinput">test</option>
+    </select>
+</label>
+
+<input hidden type="number" min="1" id="number">
+
+
+
+    
+</form>
