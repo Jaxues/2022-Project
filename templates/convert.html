@@ -4,24 +4,31 @@
     function hideform(y) {
         //Script to hide form based on input from radio button. 
         if (y=='Militres') {
-            document.getElementById('unitmills').style.display='block';
-            document.getElementById('unitgrams').style.display='none';
+            document.getElementById('unitmills').style.display='block';//Will show dropdown list for measurement to convert to mills
+            document.getElementById('unitgrams').style.display='none';// Will hides measurment that convert to grams if the user has previously selected it. 
             
         }
-        
         else  {
-            document.getElementById('unitgrams').style.display='block';
-            document.getElementById('unitmills').style.display='none';
+            document.getElementById('unitgrams').style.display='block';//Will show a dropdown list for measurement that the user can convert to grams.
+            document.getElementById('unitmills').style.display='none';//Will not show dropdown list for units to grams. Also hide this dropdown list if user changed from mills to grams. 
         }
         return;
     }
 
     function hideinput(x) {
         if (x=='mills'){
-            document.getElement.value
+            document.getElementById("NumberMeasurements").style.display='block' //Display number input after user has entered the measurement they want to convert.
+            var MeausrementsMills = document.getElementById('unitmill');
+            var MeausrementMill = MeausrementsMills.options[MeausrementsMills.selectedIndex].value;
+            let measurement = MeasurementMill
+            document.getElementById('measurement').innerHTML= measurement;
         }
         else {
-
+            document.getElementById('NumberMeasurements').style.display='block' //Display number input after user has entered unit they would like to convert to grams. 
+            var MeausrementsGrams = document.getElementById('unitgrams')
+            var MeasurementGram = MeausrementsGrams.options[MeausrementsGrams.selectedIndex].value
+            let measurement = MeasurementGram
+            document.getElementById('measurement').innerHTML= measurement;
         }
         return
     }
@@ -32,12 +39,16 @@
 <body>
     <form method="post" action="/conversions">
         <h2> What would you like to convert measurement to?</h2>
-        <input type="radio"  name="Militres or Grams" id="Militres" value="Militres" onclick="hideform('Militres')"> Militres
-        <input type="radio"  name="Militres or Grams" id="Grams" values="Grams" onclick="hideform('Grams')"> Grams   
-           <label hidden id="unitmills">
+        <input type="radio"  name="Militres or Grams" id="Militres" value="Militres" onclick="hideform('Militres')"> Militres <!-- Radio button for militres which will run script if pressed.-->
+        <input type="radio"  name="Militres or Grams" id="Grams" values="Grams" onclick="hideform('Grams')"> Grams   <!-- Radio button for militres which will run script if pressed.-->
+        <!-- Becuase radio buttons user can only select either meaning that one measurement will be shown based on the selection.-->   
+        <!-- Drop down menu of measurements that user can convert. Hidden so user will be shown dropdown based on whether they would like to convert mills or grams. -->
+        <!--If user selected mills then this dropdown list will be displayed-->
+        <label hidden id="unitmills">
             <label >
                 <h3>Select a unit to convert to militres</h3>
-                <select  name="unitmills"> 
+                <select  name="unitmills" onchange="hideinput('mills')"> <!-- Once measurement is selected will run function  and display next part of form..-->
+                    <option selected> ----- </option>
                     {% for unit in units_mills%}
                     <option value="{{ unit }}" > {{ unit }} </option>
                     {% endfor%}
@@ -47,10 +58,12 @@
         </label>
     
        <div >
+        <!--If user selected grams then this dropdown list will be displayed-->
         <label hidden id="unitgrams"> 
             <h3>Select a unit to convert to grams</h3>
             <label>
-                <select name="unitgrams"> 
+                <select name="unitgrams" onchange="hideinput('grams')">  <!-- Once measurement is selected will run function and display next part of form..-->
+                    <option selected> -----</option>
                     {% for unit in units_grams%}
                     <option value="{{ unit}}" > {{ unit }} </option>
                     {% endfor%}
@@ -60,14 +73,12 @@
        </div>
 
 
-    
-            <label id="NumberMeasurements">
-                <h2>Please enter the number of units you would like to convert?</h2>
+    <!--Hidden so once user has elected the measurement they would like to convert it will print a message and display this. -->
+            <label hidden id="NumberMeasurements">
+                <h2>Please enter the number of <span id="measurement"></span> you would like to convert?</h2>
                 <p><input name='numberofunits' type='number' min=0.25 step="0.25">
                 </label>
-
-
         <p><input type="submit"> </p>
     </form>
-    
+</body>
 {%endblock%}

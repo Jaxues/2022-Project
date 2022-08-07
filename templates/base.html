@@ -1,8 +1,19 @@
 
+
 <header>
-    {% include "menu.html"%}
-    <h1> This is the header</h1>
-<link href="{{ url_for('static',filename='css/style.css')}}" rel="stylesheet">
+    <div class="header">
+        <ul>
+            <li><a href="{{ url_for('index')}}"> Home</a></li>
+            <li><a href="{{ url_for('conversions')}}"> History</a></li>
+            <li><a href="{{ url_for('converter')}}"> I want to conert?</a></li>
+            
+        </ul>
+    
+        <h1> Measureverto</h1>
+        <h2> The Cool way to Convert Measurements for Cooking. </h2>
+    <link href="{{ url_for('static',filename='css/style.css')}}" rel="stylesheet">
+    </div>
+
 </header>
 
 
@@ -12,5 +23,6 @@
 {% endblock %} 
 
 <footer>
-    <h6><a href='https://youtu.be/dQw4w9WgXcQ'> This is such a banger</a><h6>
+    <p> This is a project made using Flaks,HTML,CSS, SQLite, and Javascript.</p>
+    <h6>*I don't know the trademark or domain name for Measureverto. This is a personal project and not a commerical entity. <h6>
 </footer>

@@ -1,24 +1,39 @@
+/* Header styling*/
 header{
-    color:black;
+    color:black; 
     background-color: whitesmoke;
     font-family: 'Comic Sans MS';
-    font-size: 18px;
+    font-size: 15px;
     margin: 0px;
     padding: 0px;
-    text-align: left;
+    text-align: left;/* Get so title lines up with links within page*/
     left:0;
     right:0;
     width:100%;
-    
-    
+    top:0;
+    left:0;
+    right:0;
+    position:fixed;
 }
+
+h1 {
+    color: #ff4500;
+    font-family: 'Comic Sans MS';
+    font-style: italic;
+    font-weight: bold;
+    font-size: 25px;
+}
+
 body{
-    color:black;
-    background-image:url('logo.png');
-    font-size: 10px;
-    padding: 1mm;
+    color:rgb(0, 0, 0);
+    background-image:url('/static/images/logo.png');
+    font-size: 20px;
+    padding: 2mm;
+    padding-top: 150px;
     margin: 0.5mm;
     font-family: 'Comic Sans MS';
+    position: relative;
+
 
 }
 
@@ -31,6 +46,9 @@ footer{
     right:0;
     width:100%;
     position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
 }
 
     
@@ -38,19 +56,62 @@ ul{
     margin: 0px;
     padding: 0px;
     list-style: none;
+    
 }
 li{
     font-family: "Comic San MS";
-    font-size: 20px;
-    color: black;
+    font-size: 15px;
+    color: rgba(128, 128, 128, 0.915);
+   
 }
 
 ul li {
     float: right;
-    width: 250px;
+    width:200;
     height: 50px;
     text-align: center;
     background-color: whitesmoke;
     color:black
 }
 
+th, td {
+   width:75%;
+   text-align: left;
+   font-family: "Comic San MS";
+   padding-left: 10px;
+
+}
+
+th {
+    font-family: 'Comic Sans MS';
+    font-size: 25px;
+}
+
+td{
+    font-family: 'Comic Sans MS';
+    font-size: 20px;
+}
+
+tr:nth-child(even) { background-color: rgba(206, 209, 209, 0.726);
+    
+}
+
+tr:nth-child(odd) {background-color: whitesmoke;
+
+}
+
+
+tr:nth-child(2) { background-color: #ff7f50;}
+a{
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    
+}
+a:hover {
+    color: rgb(251, 84, 6)
+   
+    
+}
+
+a:checked{
+    color:blue;}
