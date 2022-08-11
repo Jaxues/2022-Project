@@ -113,5 +113,10 @@ a:hover {
     
 }
 
-a:checked{
-    color:blue;}
+
+.error {
+    background-image:url('/static/images/uh-oh-404.jpg');
+    width: 100%;
+    height: 100%;
+}
+
