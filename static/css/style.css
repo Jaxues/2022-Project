@@ -23,6 +23,7 @@ h1 {
     font-weight: bold;
     font-size: 25px;
 }
+
 /* Styling for menu bar so looks better.*/
 ul{
     margin: 0px;
@@ -69,9 +70,10 @@ body{
     font-size: 20px;
     padding: 2mm;
     padding-top: 150px;
-    margin: 0.5mm;
+    margin: 8.5mm;
     font-family: 'Comic Sans MS';
     position: relative;
+    accent-color: #ff8000;
 
 
 }
@@ -94,9 +96,9 @@ footer{
 
 /* Styling for tables in conversion to grams and mills pages. */
 th, td {
-   text-align: left;
+    text-align: left;
    font-family: "Comic San MS";
-   padding-left: 10px;
+   padding: 15px;
 
 }
 

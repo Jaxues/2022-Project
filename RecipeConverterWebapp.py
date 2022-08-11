@@ -138,7 +138,7 @@ def conversion_mills():
 def conversion_grams():
     connect=sqlite3.connect('Conversion')
     c=connect.cursor()
-    c.execute("SELECT * FROM grams")
+    c.execute("SELECT * FROM grams ORDER by date DESC")
     add_to_table_grams=tuple(c.fetchall())
     return render_template('conversion_grams.html',heading_table_grams=heading_table_grams,add_to_table_grams=add_to_table_grams)    
 
