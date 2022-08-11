@@ -1,10 +1,10 @@
 {% extends 'base.html'%}
 {% block content%}
-{% if x==1 %}
-<p>The final conversion of {{add_to_table_grams[1]}} {{add_to_table_grams[0]}} to grams is {{add_to_table_grams[2]}}.</p>
+{% if x in units_grmas %}
+<p>shotcumfuck</p>
 <p><a href="{{ url_for('converter')}}"> Convert another measurement</a></p>
-{% elif x==0%}
-<p>The final conversion of {{add_to_table_mills[1]}} {{add_to_table_mills[0]}} to mills is {{add_to_table_mills[2]}}.</p>
+{% elif x in units_mill%}
+<p>test</p>
 <p><a href="{{ url_for('converter')}}"> Convert another measurement</a></p>
 {% else%}
 <p> No units converted yet convert.</p>

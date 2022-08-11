@@ -15,7 +15,7 @@ header{
     right:0;
     position:fixed;
 }
-
+/* This is styling for heading one which is name of website.*/
 h1 {
     color: #ff4500;
     font-family: 'Comic Sans MS';
@@ -23,35 +23,7 @@ h1 {
     font-weight: bold;
     font-size: 25px;
 }
-
-body{
-    color:rgb(0, 0, 0);
-    background-image:url('/static/images/logo.png');
-    font-size: 20px;
-    padding: 2mm;
-    padding-top: 150px;
-    margin: 0.5mm;
-    font-family: 'Comic Sans MS';
-    position: relative;
-
-
-}
-
-footer{
-    color:black;
-    background-color: whitesmoke;
-    font-family: 'Comic Sans MS';
-    font-size: 9px;
-    left:0;
-    right:0;
-    width:100%;
-    position: fixed;
-    bottom: 0;
-    left:0;
-    right:0;
-}
-
-    
+/* Styling for menu bar so looks better.*/
 ul{
     margin: 0px;
     padding: 0px;
@@ -74,39 +46,14 @@ ul li {
     color:black
 }
 
-th, td {
-   width:75%;
-   text-align: left;
-   font-family: "Comic San MS";
-   padding-left: 10px;
-
-}
-
-th {
-    font-family: 'Comic Sans MS';
-    font-size: 25px;
-}
-
-td{
-    font-family: 'Comic Sans MS';
-    font-size: 20px;
-}
-
-tr:nth-child(even) { background-color: rgba(206, 209, 209, 0.726);
-    
-}
-
-tr:nth-child(odd) {background-color: whitesmoke;
-
-}
 
 
-tr:nth-child(2) { background-color: #ff7f50;}
 a{
     color:rgb(0, 0, 0);
     font-size: 20px;
     
 }
+/* Style so when hover over anchor tags in navbar will change colour. */
 a:hover {
     color: rgb(251, 84, 6)
    
@@ -114,9 +61,72 @@ a:hover {
 }
 
 
-.error {
-    background-image:url('/static/images/uh-oh-404.jpg');
-    width: 100%;
-    height: 100%;
+
+/* Styling for body*/
+body{
+    color:rgb(0, 0, 0);
+    background-image:url('/static/images/logo.png');
+    font-size: 20px;
+    padding: 2mm;
+    padding-top: 150px;
+    margin: 0.5mm;
+    font-family: 'Comic Sans MS';
+    position: relative;
+
+
 }
+
+
+/*Styling for footer*/
+footer{
+    color:black;
+    background-color: whitesmoke;
+    font-family: 'Comic Sans MS';
+    font-size: 9px;
+    left:0;
+    right:0;
+    width:100%;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+}
+
+/* Styling for tables in conversion to grams and mills pages. */
+th, td {
+   text-align: left;
+   font-family: "Comic San MS";
+   padding-left: 10px;
+
+}
+
+/*Table styling*/
+
+/*Table heading styling */
+th {
+    font-family: 'Comic Sans MS';
+    font-size: 25px;
+}
+/* Table data styling*/
+td{
+    font-family: 'Comic Sans MS';
+    font-size: 20px;
+}
+
+
+/* Styling so that table has zebra pattern of grey and white*/
+/* Styling so even rows of table are grey*/
+tr:nth-child(even) { background-color: rgba(206, 209, 209, 0.726);
+    
+}
+/*Styling so odd rows of table are white*/
+tr:nth-child(odd) {background-color: whitesmoke;
+
+}
+
+/*Makes so first row of data in table stands out. This makes it easier to identify the most recent conversion the user has made. */
+tr:nth-child(2) { background-color: #ff7f50;}
+
+
+
 

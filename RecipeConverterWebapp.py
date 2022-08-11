@@ -1,16 +1,19 @@
 from flask import Flask,render_template,redirect,request
 import sqlite3
+from datetime import datetime
 
 #Database 
 connect=sqlite3.connect('Conversion')
 c=connect.cursor()
 #Intial setup of database
 
+print()
+
 try:
     #Create table to store measurement entered in mills
-    c.execute("CREATE TABLE militres(unit TEXT,number_of_unit INTERGER,conversion INTERGER)")
+    c.execute("CREATE TABLE militres(date TEXT,quantity INTERGER, unit TEXT,conversion INTERGER)")
     #Create table to store measurement entered in grams
-    c.execute("CREATE TABLE grams(unit TEXR,number of unit number,conversion number)")
+    c.execute("CREATE TABLE grams(date TEXT,quantity INTERGER, unit TEXT,conversion INTERGER)")
     print("Database Setup")
     connect.close()
     connect.commit()
@@ -51,8 +54,8 @@ unit_to_grams=('ounce','pound','stick')
 unit_to_mills=('teaspoon','tablespoon','cup','quart','pint')
 
 #Headings for table
-heading_table_grams=('Number of measurement','Measurement','Conversion to grams')
-heading_table_mills=('Number of measurement','Measurement','Conversion to militres')
+heading_table_grams=('Date','Number of measurement','Measurement','Conversion to grams')
+heading_table_mills=('Date','Number of measurement','Measurement','Conversion to militres')
 
 
 #Flask app code
@@ -81,18 +84,20 @@ def conversions():
             conversion_mills=float(conversion_to_mills_dict[measurement_mills])*float(number_measurements) 
             #This gets the usermeasurement from the form and then converts it into mills using it as a key in a dictionary. This is then multiplied by the number of measurements to get the final conversion. 
             print(conversion_mills)  
+            date = datetime.today().strftime('%Y-%m-%d')
             #Print conversion to see if it is correct.      
-            add_to_tale_mills=(measurement_mills,number_measurements,conversion_mills)
+            add_to_tale_mills=(date,number_measurements,measurement_mills,conversion_mills)
             #This is tuple which will be inserted into the Database.  
             print(add_to_tale_mills)
             # See if it is correct. 
+            
             connect=sqlite3.connect('Conversion')
             c=connect.cursor()
-            c.execute("INSERT INTO militres VALUES(?,?,?)",add_to_tale_mills)
+            c.execute("INSERT INTO militres VALUES(?,?,?,?)",add_to_tale_mills)
             # Inserts form data into database. 
             connect.commit()
             connect.close()
-            return render_template('conversions.html')
+            return render_template('conversions.html',x='ounce',unit_grams=unit_to_grams)
         else:
             measurement_grams=request.form['unitgrams']
             print(measurement_grams)
@@ -101,13 +106,14 @@ def conversions():
             conversion_grams=float(conversion_to_grams_dict[measurement_grams])*float(number_measurements) 
             #This gets the usermeasurement from the form and then converts it into grams using it as a key in a dictionary. This is then multiplied by the number of measurements to get the final conversion. 
             print(conversion_grams)
-             #Print conversion to see if it is correct.      
-            add_to_tale_grams=(measurement_grams,number_measurements,conversion_grams)
+            date = datetime.today().strftime('%Y-%m-%d')
+            #Print conversion to see if it is correct.      
+            add_to_tale_grams=(date,number_measurements,measurement_grams,conversion_grams)
             #This is tuple which will be inserted into the Database.
             print(add_to_tale_grams)
             connect=sqlite3.connect('Conversion')
             c=connect.cursor()
-            c.execute("INSERT INTO grams VALUES(?,?,?)",add_to_tale_grams)
+            c.execute("INSERT INTO grams VALUES(?,?,?,?)",add_to_tale_grams)
             # Inserts form data into database.
             connect.commit()
             connect.close()
