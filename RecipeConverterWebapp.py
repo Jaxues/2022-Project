@@ -142,8 +142,13 @@ def conversion_grams():
     add_to_table_grams=tuple(c.fetchall())
     return render_template('conversion_grams.html',heading_table_grams=heading_table_grams,add_to_table_grams=add_to_table_grams)    
 
+@app.route("/help")
+def help():
+    return render_template('help.html',unit_to_grams=unit_to_grams, unit_mills=unit_to_mills)
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
 app.run(debug=True)
 

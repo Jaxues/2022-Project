@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content%}
+<h1> Page Function</h1>
+<p> I want to convert: Directs you to a page where you can convert measurements into grams or mililitres.</p>
+<p>History: Shows most recent conversion and can direct to tables which hold conversions to grams or mililitres</p>
+<p>Home: Brings you back to this page.</p>
+<style>
+    td {
+        text-align: center;
+    }
+    tr:nth-child(2) { background-color: rgba(206, 209, 209, 0.726);}
+    th,td {
+        width:100%;
+        padding: 10px;
+    }
+</style>
+
+<br>
+<table>
+    <tr><th>Accepted Measurement Grams</th></tr>
+
+    {% for measurement in unit_to_grams%}
+    <tr>
+        <td>{{measurement}}</td>
+    </tr>
+    {% endfor%}
+</table>
+<br>
+<table>
+    <tr><th>Accepted Measurement Mililitres</th></tr>
+    {% for measurement in unit_mills%}
+    <tr>
+        
+        <td>{{measurement}}</td>
+        
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock%}
