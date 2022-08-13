@@ -50,8 +50,8 @@ conversion_to_mills_dict = {'cup':240,
                        'quart':946}
 #Dictionary to convert form input from user into equivalent in mills. 
 #Units
-unit_to_grams=('ounce','pound','stick')
-unit_to_mills=('teaspoon','tablespoon','cup','quart','pint')
+unit_to_grams=('Ounce','Pound','Stick')
+unit_to_mills=('Teaspoon','Tablespoon','Cup','Quart','Pint')
 
 #Headings for table
 heading_table_grams=('Date','Number of measurement','Measurement','Conversion to grams')
