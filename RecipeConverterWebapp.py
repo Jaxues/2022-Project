@@ -61,8 +61,8 @@ heading_table_mills=('Date','Number of measurement','Measurement','Conversion to
 #Flask app code
 app = Flask(__name__)
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 @app.route('/convert')
 def converter():
     return render_template('convert.html',units_grams=unit_to_grams,units_mills=unit_to_mills)
