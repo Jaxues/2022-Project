@@ -21,7 +21,7 @@ h1 {
     font-family: 'Comic Sans MS';
     font-style: italic;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30x;
 }
 
 /* Styling for menu bar so looks better.*/
@@ -130,5 +130,20 @@ tr:nth-child(odd) {background-color: whitesmoke;
 tr:nth-child(2) { background-color: #ff7f50;}
 
 
+input[type='radio'] {
+    transform:scale(2);
+}
 
+input[type='radio']::after {
+    transform:scale(0.75);
+}
 
+label {
+    size: 100px;
+    font-family: 'Comic Sans MS';
+    font-size: 15px;
+}
+option{
+    font-weight: 'Comic Sans MS';
+    background-color: black;
+}

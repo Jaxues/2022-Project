@@ -39,15 +39,15 @@ try:
 except:
     pass
 #Recipe converter
-conversion_to_grams_dict = {'ounce':28.35,
-                      'pound':454,
-                      'stick':113}
+conversion_to_grams_dict = {'Ounce':28.35,
+                      'Pound':454,
+                      'Stick':113}
 #Dictionary to convert form input from user into equivalent in grams. 
-conversion_to_mills_dict = {'cup':240,
-                      'teaspoon':5,
-                      'tablespoon':15,
-                       'pint':473,
-                       'quart':946}
+conversion_to_mills_dict = {'Cup':240,
+                      'Teaspoon':5,
+                      'Tablespoon':15,
+                       'Pint':473,
+                       'Quart':946}
 #Dictionary to convert form input from user into equivalent in mills. 
 #Units
 unit_to_grams=('Ounce','Pound','Stick')
