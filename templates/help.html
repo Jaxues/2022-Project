@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content%}
-<h1> Page Function</h1>
-<p> I want to convert: Directs you to a page where you can convert measurements into grams or mililitres.</p>
-<p>History: Shows most recent conversion and can direct to tables which hold conversions to grams or mililitres</p>
-<p>Home: Brings you back to this page.</p>
+<h1> Page Functions</h1>
+<p> I want to convert: Directs you to a page where you can convert measurements into grams or mililitres.
+    <br>History: Shows most recent conversion and can direct to tables which hold conversions to grams or mililitres
+    <br>Home: Brings you back to this page.</p>
 <style>
     td {
         text-align: center;
@@ -14,8 +14,7 @@
         padding: 10px;
     }
 </style>
-
-<br>
+<h1> Measurements</h1>
 <table>
     <tr><th>Accepted Measurement Grams</th></tr>
 
@@ -37,4 +36,5 @@
     {% endfor %}
 </table>
 
+<br> 
 {% endblock%}

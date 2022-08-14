@@ -11,7 +11,7 @@ print()
 
 try:
     #Create table to store measurement entered in mills
-    c.execute("CREATE TABLE militres(date TEXT,quantity INTERGER, unit TEXT,conversion INTERGER)")
+    c.execute("CREATE TABLE millilitres(date TEXT,quantity INTERGER, unit TEXT,conversion INTERGER)")
     #Create table to store measurement entered in grams
     c.execute("CREATE TABLE grams(date TEXT,quantity INTERGER, unit TEXT,conversion INTERGER)")
     print("Database Setup")
@@ -33,7 +33,7 @@ except:
     pass
 #data from mills table
 try:
-    c.execute("SELECT * FROM militres")
+    c.execute("SELECT * FROM millilitres")
     DisplaytoTableMills=tuple(c.fetchall())
     print("Data queried from Table Mills")
 except:
@@ -55,7 +55,7 @@ unit_to_mills=('Teaspoon','Tablespoon','Cup','Quart','Pint')
 
 #Headings for table
 heading_table_grams=('Date','Number of measurement','Measurement','Conversion to grams')
-heading_table_mills=('Date','Number of measurement','Measurement','Conversion to militres')
+heading_table_mills=('Date','Number of measurement','Measurement','Conversion to millilitres')
 
 
 #Flask app code
@@ -71,8 +71,8 @@ def converter():
 @app.route("/conversions/", methods=['POST','GET'])
 def conversions():
     if request.method=='POST':
-        millsorgrams=request.form['Militres or Grams']
-        if millsorgrams == 'Militres':
+        millsorgrams=request.form['millilitres or Grams']
+        if millsorgrams == 'millilitres':
             measurement_mills=request.form['unitmills']
             # This gets the measurement that the user has selected from the form
             print(measurement_mills)
@@ -93,7 +93,7 @@ def conversions():
             
             connect=sqlite3.connect('Conversion')
             c=connect.cursor()
-            c.execute("INSERT INTO militres VALUES(?,?,?,?)",add_to_tale_mills)
+            c.execute("INSERT INTO millilitres VALUES(?,?,?,?)",add_to_tale_mills)
             # Inserts form data into database. 
             connect.commit()
             connect.close()
@@ -128,8 +128,8 @@ def conversions():
 def conversion_mills():
     connect=sqlite3.connect('Conversion')
     c=connect.cursor()
-    c.execute("SELECT * FROM militres")
-    #Gets all data crom militres table
+    c.execute("SELECT * FROM millilitres ORDER by date DESC")
+    #Gets all data crom millilitres table
     add_to_table_mills=tuple(c.fetchall())
     return render_template('conversion_mill.html',heading_table_mills=heading_table_mills, add_to_table_mills=add_to_table_mills)
 

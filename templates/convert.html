@@ -4,7 +4,7 @@
     function hideform(y) {
         //Script to hide form based on input from radio button. 
         document.getElementById('NumberMeasurements').style.dsiplay='none'//Hide input for number so if user changes mind will not show previous selected unit for quantity they would like to convert.
-        if (y=='Militres') {
+        if (y=='millilitres') {
             document.getElementById('unitmills').style.display='block';//Will show dropdown list for measurement to convert to mills
             document.getElementById('unitgrams').style.display='none';// Will hides measurment that convert to grams if the user has previously selected it. 
             
@@ -29,19 +29,20 @@
     </script>
 
 
-
 <body>
     <form method="post" action="/conversions">
+        <div class="form">
         <h2> What would you like to convert measurement to?</h2>
-        <input type="radio"  name="Militres or Grams" id="Militres" value="Militres" onclick="hideform('Militres')"> Militres <!-- Radio button for militres which will run script if pressed.-->
-        <input type="radio"  name="Militres or Grams" id="Grams" values="Grams" onclick="hideform('Grams')"> Grams   <!-- Radio button for militres which will run script if pressed.-->
+        <input type="radio"  name="millilitres or Grams" id="millilitres" value="millilitres" onclick="hideform('millilitres')"> Millilitres <!-- Radio button for millilitres which will run script if pressed.-->
+        <input type="radio"  name="millilitres or Grams" id="Grams" values="Grams" onclick="hideform('Grams')"> Grams   <!-- Radio button for millilitres which will run script if pressed.-->
         <!-- Becuase radio buttons user can only select either meaning that one measurement will be shown based on the selection.-->   
         <!-- Drop down menu of measurements that user can convert. Hidden so user will be shown dropdown based on whether they would like to convert mills or grams. -->
         <!--If user selected mills then this dropdown list will be displayed-->
         <label hidden id="unitmills">
             <label >
-                <h3>Select a unit to convert to militres</h3>
-                <select  name="unitmills" onchange="hideinput(this)"> <!-- Once measurement is selected will run function  and display next part of form..-->
+                <h3>Select a unit to convert to milliliters?</h3>
+                <select  name="unitmills" onchange="hideinput(this)" class="dropdown"> <!-- Once measurement is selected will run function  and display next part of form..-->
+                    <option disabled selected>-----</option>
                     {% for unit in units_mills%}
                     <option value="{{ unit }}" > {{ unit }} </option>
                     {% endfor%}
@@ -53,9 +54,10 @@
        <div >
         <!--If user selected grams then this dropdown list will be displayed-->
         <label hidden id="unitgrams"> 
-            <h3>Select a unit to convert to grams</h3>
+            <h3>Select a unit to convert to grams?</h3>
             <label>
-                <select name="unitgrams" onchange="hideinput(this)">  <!-- Once measurement is selected will run function and display next part of form..-->
+                <select name="unitgrams" onchange="hideinput(this)" class="dropdown">  <!-- Once measurement is selected will run function and display next part of form..-->
+                    <option disabled selected>-----</option>
                     {% for unit in units_grams%}
                     <option value="{{ unit}}" > {{ unit }} </option>
                     {% endfor%}
@@ -71,6 +73,7 @@
                 <p><input name='numberofunits' type='number' min=0.25 step="0.25" onchange="showsubmit()">
                 </label>
         <p hidden id="Submit"><input type="submit"></p>
+        </div>
     </form>
 </body>
 {%endblock%}
