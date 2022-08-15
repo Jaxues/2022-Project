@@ -1,14 +1,14 @@
 {% extends 'base.html'%}
 {% block content%}
-{% if x in units_grmas %}
-<p>shotcumfuck</p>
+{% if x == "millilitres" %} <!-- If user is posted to this page via mililitres this show displaying there most recent conversion. Indexing 1 for the number 2 for the measurement and 3 for the conversion-->
+<p> {{add_to_tale_mills[1]}} {{add_to_tale_mills[2]}}s is {{add_to_tale_mills[3]}} millilitres.</p>
 <p><a href="{{ url_for('converter')}}"> Convert another measurement</a></p>
-{% elif x in units_mill%}
-<p>test</p>
+{% elif x == "grams" %}<!--  Same as with millitires page will is for grams instead. Indexing from add to table grams tuple instead of add to table mills.-->
+<p>{{add_to_tale_grams[1]}} {{add_to_tale_grams[2]}} {{add_to_tale_grams[3]}} grams.</p>
 <p><a href="{{ url_for('converter')}}"> Convert another measurement</a></p>
-{% else%}
+{% else%} <!-- If the user hasn't been posted to this page no recent conversions will appear and this will be displayed instead.-->
 <p> No units converted yet convert.</p>
 {% endif%}
-<p><a href="{{ url_for('conversion_grams')}}"> Conversions for grams</a> </p>
-<p><a href="{{ url_for('conversion_mills')}}"> Conversion for mills</a></p>
+<p><a href="{{ url_for('conversion_grams')}}"> Conversions for grams</a> </p> <!-- Link to conversion for grams page -->
+<p><a href="{{ url_for('conversion_mills')}}"> Conversion for mills</a></p><!-- Link to conversion for mills page -->
 {% endblock%}

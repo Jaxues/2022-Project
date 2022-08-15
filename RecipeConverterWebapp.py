@@ -97,7 +97,7 @@ def conversions():
             # Inserts form data into database. 
             connect.commit()
             connect.close()
-            return render_template('conversions.html',x='ounce',unit_grams=unit_to_grams)
+            return render_template('conversions.html',x='millilitres',unit_to_mills=unit_to_mills,add_to_tale_mills=add_to_tale_mills)
         else:
             measurement_grams=request.form['unitgrams']
             print(measurement_grams)
@@ -117,7 +117,7 @@ def conversions():
             # Inserts form data into database.
             connect.commit()
             connect.close()
-            return render_template('conversions.html')
+            return render_template('conversions.html',x='grams',unit_to_grams=unit_to_grams,add_to_tale_grams=add_to_tale_grams)
             
     else:
         return render_template('conversions.html',)

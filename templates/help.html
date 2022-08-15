@@ -4,7 +4,8 @@
 <p> I want to convert: Directs you to a page where you can convert measurements into grams or mililitres.
     <br>History: Shows most recent conversion and can direct to tables which hold conversions to grams or mililitres
     <br>Home: Brings you back to this page.</p>
-<style>
+    <!-- Basic outline of what all pages on website do.-->
+<style> /* Style so that override defualt styling of tables for other pages. */
     td {
         text-align: center;
     }
@@ -14,10 +15,10 @@
         padding: 10px;
     }
 </style>
-<h1> Measurements</h1>
+<h1> Measurements</h1> <!-- Table of all measurement that the user is able to convert incase they are confused or don't know what the program is capable of doing. -->
 <table>
     <tr><th>Accepted Measurement Grams</th></tr>
-
+    <!-- Loop to create a table to display all measurement that can be converted to grams. -->
     {% for measurement in unit_to_grams%}
     <tr>
         <td>{{measurement}}</td>
@@ -28,13 +29,10 @@
 <table>
     <tr><th>Accepted Measurement Mililitres</th></tr>
     {% for measurement in unit_mills%}
-    <tr>
-        
+    <tr> <!-- Another loop to create a table which this time only displays the accepted units to convert to mililitres. -->
         <td>{{measurement}}</td>
-        
     </tr>
     {% endfor %}
 </table>
-
 <br> 
 {% endblock%}

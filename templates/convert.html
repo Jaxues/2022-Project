@@ -42,8 +42,8 @@
             <label >
                 <h3>Select a unit to convert to milliliters?</h3>
                 <select  name="unitmills" onchange="hideinput(this)" class="dropdown"> <!-- Once measurement is selected will run function  and display next part of form..-->
-                    <option disabled selected>-----</option>
-                    {% for unit in units_mills%}
+                    <option disabled selected>-----</option> <!-- Placeholder so user must select measurement. -->
+                    {% for unit in units_mills%} <!-- Loop to create dropdown list for all measurement for millilitres that the user is able to select -->
                     <option value="{{ unit }}" > {{ unit }} </option>
                     {% endfor%}
                 </select>
@@ -57,8 +57,8 @@
             <h3>Select a unit to convert to grams?</h3>
             <label>
                 <select name="unitgrams" onchange="hideinput(this)" class="dropdown">  <!-- Once measurement is selected will run function and display next part of form..-->
-                    <option disabled selected>-----</option>
-                    {% for unit in units_grams%}
+                    <option disabled selected>-----</option> <!-- Same as previous. -->
+                    {% for unit in units_grams%} <!-- Loop to create dropdown list for all measurements for grams that the user can select. -->
                     <option value="{{ unit}}" > {{ unit }} </option>
                     {% endfor%}
                 </select>
@@ -69,8 +69,10 @@
 
     <!--Hidden so once user has elected the measurement they would like to convert it will print a message and display this. -->
             <label hidden id="NumberMeasurements">
-                <h2>Please enter the number of <span id="quantity"></span>s you would like to convert?</h2>
-                <p><input name='numberofunits' type='number' min=0.25 step="0.25" onchange="showsubmit()">
+                <h2>Please enter the number of <span id="quantity"></span>s you would like to convert?</h2> <!-- Using script inserts using inner HTML. 
+                Example output user select cups. Function gets value from dropdown users innerHTML to write cup and then adds additional 's you would like to convert'-->
+                <p><input name='numberofunits' type='number' min=0.25 step="0.25" onchange="showsubmit()"> <!-- Minimum of 0.25 as most sensible size. 
+                    Step of 0.25 of more flexibility to enter 0.5 to 1.25 anything that goes up in quarters which is normally used in cooking.-->
                 </label>
         <p hidden id="Submit"><input type="submit"></p>
         </div>

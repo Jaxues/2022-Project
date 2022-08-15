@@ -1,9 +1,11 @@
 {% extends "base.html "%}
 {% block content%}
 <body>
+     <!--Explains what this page is so user can know and not be lost. -->
     This is a table showing all recent conversion to mililitres.
     <table>
         <tr>
+             <!-- Same procces as for table for grams. Loops through headings within a list and adds them as headings for the table.-->
             {% for heading in heading_table_mills%}
             <th> {{ heading }}</th>
             {% endfor%}
@@ -11,6 +13,7 @@
             
         {% for data_mills in add_to_table_mills%} 
             <tr>
+                <!-- Loops through queried data from database for mililitres table. -->
                 {% for data in data_mills %}
                 <td> {{ data }}</td>
                 {% endfor%}

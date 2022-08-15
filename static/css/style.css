@@ -66,14 +66,14 @@ a:hover {
 /* Styling for body*/
 body{
     color:rgb(0, 0, 0);
-    background-image:url('/static/images/logo.png');
+    background-image:url('/static/images/logo.png'); /* Uses image from static as background for website. */
     font-size: 20px;
     padding: 2mm;
     padding-top: 150px;
     margin: 8.5mm;
     font-family: 'Comic Sans MS';
     position: relative;
-    accent-color: #ff8000;
+    accent-color: #ff8000; /* Changes color of radio buttons to be orange.*/
 
 
 }
@@ -88,12 +88,16 @@ footer{
     left:0;
     right:0;
     width:100%;
+    /* All related to keeping footer at bottom of page in same position.*/
     position: fixed;
     bottom: 0;
     left:0;
     right:0;
-    padding-top: -25px;
 }
+
+
+
+/*Table styling*/
 
 /* Styling for tables in conversion to grams and mills pages. */
 th, td {
@@ -102,8 +106,6 @@ th, td {
    padding: 15px;
 
 }
-
-/*Table styling*/
 
 /*Table heading styling */
 th {
@@ -131,37 +133,48 @@ tr:nth-child(odd) {background-color: whitesmoke;
 tr:nth-child(2) { background-color: #ff7f50;}
 
 
+
+/* Styling for form */
+/*Radio button styling*/
 input[type='radio'] {
     transform:scale(2);
     margin: 15px;
 }
 
+/*Make button smaller after selected*/
 input[type='radio']::after {
     transform:scale(0.75);
 }
+
 
 label {
     size: 100px;
     
 }
+/* Add zebra strip to dropdown option select in form. */
 option:nth-child(odd){
     font-weight: 'Comic Sans MS';
     background-color:rgba(206, 209, 209, 0.726) 
 
 }
-
+/*When user hover of option change to orange to go with color scheme. */
 option:hover{
     background-color: #ff8000;
 }
 
+/* Change font of option and font size as can't do directly.*/
 .dropdown {
     font-family: 'Comic Sans MS';
     font-size: 25px; ;
 }
 
+
+/**/
 input[type='number'] {
     padding:15px;
 }
+
+
 input[type='submit'] {
     font-family: 'Comic Sans MS';
     width:100%;
