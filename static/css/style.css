@@ -7,6 +7,7 @@ header{
     margin: 0px;
     padding: 0px;
     text-align: left;/* Get so title lines up with links within page*/
+    /* all related to keeping header at top of page.*/
     left:0;
     right:0;
     width:100%;
@@ -25,30 +26,25 @@ h1 {
 }
 
 /* Styling for menu bar so looks better.*/
+/* Style so there is no extra to list containing anchor tags*/
 ul{
     margin: 0px;
     padding: 0px;
     list-style: none;
-    
-}
-li{
-    font-family: "Comic San MS";
-    font-size: 15px;
-    color: rgba(128, 128, 128, 0.915);
-   
-}
 
+}
+/* Arrnage navbar in header*/
 ul li {
+    font-family: "Comic San MS";
     float: right;
     width:200;
     height: 50px;
     text-align: center;
     background-color: whitesmoke;
-    color:black
 }
 
 
-
+/* Style anchor tags*/
 a{
     color:rgb(0, 0, 0);
     font-size: 20px;
@@ -72,7 +68,7 @@ body{
     padding-top: 150px;
     margin: 8.5mm;
     font-family: 'Comic Sans MS';
-    position: relative;
+    position: relative; /* Body will fit between where header and footer end and begin.*/
     accent-color: #ff8000; /* Changes color of radio buttons to be orange.*/
 
 
@@ -146,11 +142,6 @@ input[type='radio']::after {
     transform:scale(0.75);
 }
 
-
-label {
-    size: 100px;
-    
-}
 /* Add zebra strip to dropdown option select in form. */
 option:nth-child(odd){
     font-weight: 'Comic Sans MS';
@@ -169,12 +160,13 @@ option:hover{
 }
 
 
-/**/
+/* Styling for number input on form.*/
 input[type='number'] {
     padding:15px;
 }
 
 
+/* Syling for submit on form*/
 input[type='submit'] {
     font-family: 'Comic Sans MS';
     width:100%;

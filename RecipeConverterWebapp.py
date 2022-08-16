@@ -63,6 +63,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('home.html')
+
 @app.route('/convert')
 def converter():
     return render_template('convert.html',units_grams=unit_to_grams,units_mills=unit_to_mills)
