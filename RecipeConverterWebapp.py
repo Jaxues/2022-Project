@@ -98,7 +98,7 @@ def conversions():
             # Inserts form data into database. 
             connect.commit()
             connect.close()
-            return render_template('conversions.html',x='millilitres',unit_to_mills=unit_to_mills,add_to_tale_mills=add_to_tale_mills)
+            return render_template('conversions.html',x='millilitres',add_to_tale_mills=add_to_tale_mills)
         else:
             measurement_grams=request.form['unitgrams']
             print(measurement_grams)
@@ -118,7 +118,7 @@ def conversions():
             # Inserts form data into database.
             connect.commit()
             connect.close()
-            return render_template('conversions.html',x='grams',unit_to_grams=unit_to_grams,add_to_tale_grams=add_to_tale_grams)
+            return render_template('conversions.html',x='grams',add_to_tale_grams=add_to_tale_grams)
             
     else:
         return render_template('conversions.html',)
@@ -127,7 +127,7 @@ def conversions():
 
 @app.route("/conversionmills")
 def conversion_mills():
-    connect=sqlite3.connect('Conversion')
+    connect=sqlite3.connect('Conversion') #Connect to database. 
     c=connect.cursor()
     c.execute("SELECT * FROM millilitres ORDER by date DESC")
     #Gets all data crom millilitres table
@@ -140,16 +140,18 @@ def conversion_grams():
     connect=sqlite3.connect('Conversion')
     c=connect.cursor()
     c.execute("SELECT * FROM grams ORDER by date DESC")
+    # Queries data from databse and sorts based on what the newest entry is. 
     add_to_table_grams=tuple(c.fetchall())
-    return render_template('conversion_grams.html',heading_table_grams=heading_table_grams,add_to_table_grams=add_to_table_grams)    
+    # Queired data fecthed and new list called add to table grams created. 
+    return render_template('conversion_grams.html',heading_table_grams=heading_table_grams,add_to_table_grams=add_to_table_grams)    # Headings for loop and data for loop inserted into the table.
 
 @app.route("/help")
 def help():
-    return render_template('help.html',unit_to_grams=unit_to_grams, unit_mills=unit_to_mills)
+    return render_template('help.html',unit_to_grams=unit_to_grams, unit_mills=unit_to_mills) #Used for table to display measurements which can be accepted by the program . 
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return render_template('404.html'), 404 # 404 error page for website. 
 
 app.run(debug=True)
 
