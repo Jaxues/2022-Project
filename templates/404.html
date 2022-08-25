@@ -1,5 +1,8 @@
-<p class="error">
- Oh no 404 error. <br> <a href="{{url_for('home')}}">Take me back home</a> <!-- Error page for user in case they make a mistake or enter a nonexisting page. 
-    Link back to home so they are able to go back to website
--->
+{% extends 'base.html'%}
+{% block content%}
+    <p class="error">
+        Oh no 404 error. <br> <a href="{{url_for('home')}}">Take me back home</a> <!-- Error page for user in case they make a mistake or enter a nonexisting page. 
+           Link back to home so they are able to go back to website
+       -->
 </p>
+{%endblock%}

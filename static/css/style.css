@@ -57,24 +57,6 @@ a:hover {
     
 }
 
-
-
-/* Styling for body*/
-body{
-    color:rgb(0, 0, 0);
-    background-image:url('/static/images/logo.png'); /* Uses image from static as background for website. */
-    font-size: 20px;
-    padding: 2mm;
-    padding-top: 150px;
-    margin: 8.5mm;
-    font-family: 'Comic Sans MS';
-    position: relative; /* Body will fit between where header and footer end and begin.*/
-    accent-color: #ff8000; /* Changes color of radio buttons to be orange.*/
-
-
-}
-
-
 /*Styling for footer*/
 footer{
     color:black;
@@ -93,9 +75,25 @@ footer{
 
 
 
-/*Table styling*/
 
-/* Styling for tables in conversion to grams and mills pages. */
+/* Styling for body*/
+body{
+    color:rgb(0, 0, 0);
+    background-image:url('/static/images/logo.png'); /* Uses image from static as background for website. */
+    font-size: 25px;
+    padding: 2mm;
+    padding-top: 150px;
+    margin: 8.5mm;
+    font-family: 'Comic Sans MS';
+    position: relative; /* Body will fit between where header and footer end and begin.*/
+   
+}
+
+
+
+
+
+/*Table styling for tables in conversion to grams and mills pages. */
 th, td {
     text-align: left;
    font-family: "Comic San MS";
@@ -135,6 +133,8 @@ tr:nth-child(2) { background-color: #ff7f50;}
 input[type='radio'] {
     transform:scale(2);
     margin: 15px;
+    accent-color: #ff8000; /* Changes color of radio buttons to be orange.*/
+
 }
 
 /*Make button smaller after selected*/
@@ -172,3 +172,14 @@ input[type='submit'] {
     width:100%;
 }
 
+.error {
+    text-align: center;
+    background-color: white;
+    width: 75%;
+    height: 55%;
+    margin: 125px;
+    font-size: 125px;
+    color: #FF8C00;
+    padding: 10px;
+    
+}

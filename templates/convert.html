@@ -6,13 +6,15 @@
         document.getElementById('NumberMeasurements').style.dsiplay='none'//Hide input for number so if user changes mind will not show previous selected unit for quantity they would like to convert.
         if (y=='millilitres') {
             document.getElementById('unitmills').style.display='block';//Will show dropdown list for measurement to convert to mills
-            document.getElementById('unitgrams').style.display='none';// Will hides measurment that convert to grams if the user has previously selected it. 
-            
+            document.getElementById('unitgrams').style.display='none';// Will hides measurment that convert to grams if the user has previously selected it.
+            document.getElementById('NumberMeasurements').style.display='none'; // Hides input so if user has previously selected unit for mills not show and hide instead. 
+            document.getElementById
             
         }
         else  {
             document.getElementById('unitgrams').style.display='block';//Will show a dropdown list for measurement that the user can convert to grams.
             document.getElementById('unitmills').style.display='none';//Will not show dropdown list for units to grams. Also hide this dropdown list if user changed from mills to grams. 
+            document.getElementById('NumberMeasurements').style.display='none'; // Hides input so if user has previously selected unit for mills not show and hide instead.
         }
         return;
     }
